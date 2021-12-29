@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+const moment = require('moment');
 
-// Schema to create Student model
 const thoughtSchema = new Schema(
   {
     thoughtText: {
@@ -13,13 +13,13 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      // get: to format date
+      get: formatDate
     },
     username: {
       type: String,
       required: true
     },
-    reactions: [reactionSchema],
+    reactions: [ reactionSchema ],
   },
   {
     toJSON: {
@@ -29,7 +29,15 @@ const thoughtSchema = new Schema(
   }
 );
 
+//Function to format date
+function formatDate(date) {
+  moment(date).format('MMMM Do YYYY, h:mm a')
+}
+
 //Virtual for reactionCount
+thoughtSchema.virtual('reactionCount').get(function() {
+  return this.reactions.length;
+});
 
 const Thought = model('thought', thoughtSchema);
 
