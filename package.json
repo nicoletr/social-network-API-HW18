@@ -22,6 +22,7 @@
   "homepage": "https://github.com/nicoletr/social-network-API-HW18#readme",
   "dependencies": {
     "express": "^4.17.2",
+    "moment": "^2.29.1",
     "mongoose": "^6.1.4",
     "validator": "^13.7.0"
   },
