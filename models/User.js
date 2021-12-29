@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const validator = require('validator');
 
 // Schema to create Student model
 const userSchema = new Schema(
@@ -7,18 +8,32 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      trimmed: true,
+      trim: true,
       max_length: 50,
     },
     email: {
       type: String,
-      required: true,
+      required: [ true, "Email required" ],
       unique: true,
-      //email validation
+      validate: {
+        validator: validator.isEmail,
+        message: "Please enter a valid email",
+        isAsync: false
+      },
       max_length: 50,
-    }
-    //thoughts: _id values from Thought model
-    //friends: _id values from User model (self-referencing)
+    },
+    thoughts: [ 
+      { 
+        type: Schema.Types.ObjectId, 
+        ref: 'Thought' 
+      } 
+    ],
+    friends: [ 
+      { 
+        type: Schema.Types.ObjectId, 
+        ref: 'User' 
+      } 
+    ],
   },
   {
     toJSON: {
@@ -28,6 +43,9 @@ const userSchema = new Schema(
 );
 
 //Virtual for friendCount
+userSchema.virtual('friendCount').get(function() {
+  return this.friends.length;
+});
 
 const User = model('user', userSchema);
 
