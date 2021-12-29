@@ -1,0 +1,30 @@
+{
+  "name": "social-network-api-hw18",
+  "version": "1.0.0",
+  "description": "Backend API for Social Media App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index",
+    "seed": "node utils/seed",
+    "heroku-postbuild": "node utils/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicoletr/social-network-API-HW18.git"
+  },
+  "author": "nicoletr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicoletr/social-network-API-HW18/issues"
+  },
+  "homepage": "https://github.com/nicoletr/social-network-API-HW18#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
