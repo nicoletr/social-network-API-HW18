@@ -20,7 +20,9 @@ connection.once('open', async () => {
 
   for (let i = 0; i < 20; i++) {
     const username = getRandomUsername();
-    const email = `${username}${Math.floor(Math.random() * (99 - 18 + 1) + 18)}@email.com`;
+    const email = `${username}${Math.floor(
+      Math.random() * (99 - 18 + 1) + 18,
+    )}@email.com`;
 
     users.push({
       username,

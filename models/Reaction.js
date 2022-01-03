@@ -1,31 +1,31 @@
-const { Schema } = require('mongoose')
+const { Schema } = require('mongoose');
 
 const reactionSchema = new Schema(
   {
     reactionId: {
-      type: Schema.Types.ObjectId
+      type: Schema.Types.ObjectId,
     },
     reactionBody: {
       type: String,
       required: true,
       minlength: 1,
-      maxlength: 280
+      maxlength: 280,
     },
     username: {
       type: String,
-      required: true
+      required: true,
     },
     createdAt: {
       type: Date,
       default: Date.now(),
-      get: formatDate
+      get: formatDate,
     },
   },
   {
     toJSON: {
-      getters: true
+      getters: true,
     },
-  }
+  },
 );
 
 //Function to format date
@@ -34,4 +34,4 @@ function formatDate(date) {
   return formattedDate;
 }
 
-module.exports = { reactionSchema }
+module.exports = { reactionSchema };

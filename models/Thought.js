@@ -8,25 +8,25 @@ const thoughtSchema = new Schema(
       type: String,
       required: true,
       minlength: 1,
-      maxlength: 280
+      maxlength: 280,
     },
     createdAt: {
       type: Date,
       default: Date.now(),
-      get: formatDate
+      get: formatDate,
     },
     username: {
       type: String,
       required: true,
     },
-    reactions: [ reactionSchema ],
+    reactions: [reactionSchema],
   },
   {
     toJSON: {
       getters: true,
-      virtuals: true
+      virtuals: true,
     },
-  }
+  },
 );
 
 //Function to format date
@@ -36,7 +36,7 @@ function formatDate(date) {
 }
 
 //Virtual for reactionCount
-thoughtSchema.virtual('reactionCount').get(function() {
+thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 

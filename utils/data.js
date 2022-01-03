@@ -75,9 +75,10 @@ const usernames = [
 ];
 
 // Get a random item given an array
-const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const getRandomArrItem = (arr) =>
+  arr[Math.floor(Math.random() * arr.length)];
 
 const getRandomUsername = () =>
-`${getRandomArrItem(usernames)}${getRandomArrItem(usernames)}`;
+  `${getRandomArrItem(usernames)}${getRandomArrItem(usernames)}`;
 
 module.exports = { getRandomUsername };
