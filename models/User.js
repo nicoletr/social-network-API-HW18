@@ -8,7 +8,7 @@ const userSchema = new Schema(
       unique: true,
       required: true,
       trim: true,
-      max_length: 50,
+      max_length: 50
     },
     email: {
       type: String,
@@ -19,7 +19,6 @@ const userSchema = new Schema(
         message: "Please enter a valid email",
         isAsync: false
       },
-      max_length: 50,
     },
     thoughts: [ 
       { 
@@ -37,6 +36,7 @@ const userSchema = new Schema(
   {
     toJSON: {
       getters: true,
+      virtuals: true
     },
   }
 );
