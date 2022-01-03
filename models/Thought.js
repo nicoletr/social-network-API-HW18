@@ -16,9 +16,9 @@ const thoughtSchema = new Schema(
       get: formatDate
     },
     username: {
-      // ref: 'User'  ??
       type: String,
-      required: true
+      required: true,
+      ref: 'User'
     },
     reactions: [ reactionSchema ],
   },
