@@ -30,7 +30,8 @@ const reactionSchema = new Schema(
 
 //Function to format date
 function formatDate(date) {
-  moment(date).format('MMMM Do YYYY, h:mm a')
+  formattedDate = moment(date).format('MMMM Do YYYY, h:mm a');
+  return formattedDate;
 }
 
 module.exports = { reactionSchema }

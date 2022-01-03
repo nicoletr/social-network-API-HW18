@@ -18,7 +18,6 @@ const thoughtSchema = new Schema(
     username: {
       type: String,
       required: true,
-      ref: 'User'
     },
     reactions: [ reactionSchema ],
   },
@@ -32,7 +31,8 @@ const thoughtSchema = new Schema(
 
 //Function to format date
 function formatDate(date) {
-  moment(date).format('MMMM Do YYYY, h:mm a')
+  formattedDate = moment(date).format('MMMM Do YYYY, h:mm a');
+  return formattedDate;
 }
 
 //Virtual for reactionCount
