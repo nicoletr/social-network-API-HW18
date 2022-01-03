@@ -1,9 +1,10 @@
-const { Schema, model } = require('mongoose')
+const { Schema } = require('mongoose')
 
 const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
+      // default: new ObjectId   ???
     },
     reactionBody: {
       type: String,
@@ -28,7 +29,7 @@ const reactionSchema = new Schema(
   }
 );
 
-//format date 
+//Function to format date
 function formatDate(date) {
   moment(date).format('MMMM Do YYYY, h:mm a')
 }
